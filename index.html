@@ -1,24 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gujarati Trader™ | Smart Stock Market Community</title>
 
-<title>Gujarati Trader — Free Market Education Community</title>
-
-<meta name="description"
-content="Gujarati Trader is a free Telegram community focused on market education, chart learning, and risk management for Nifty, BankNifty, and stocks." />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Gujarati Trader — Free Market Education Community" />
-<meta property="og:description" content="Learn market analysis, charts, and trading discipline. Educational content only." />
-<meta property="og:image" content="https://uploads.onecompiler.io/445e5df86/445tc7ue3/330.png" />
-<meta property="og:type" content="website" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-
-<!-- ================= META PIXEL ================= -->
+<!-- ===== META PIXEL START ===== -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -28,168 +15,256 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-
 fbq('init', '2038102523416716');
 fbq('track', 'PageView');
 </script>
-
 <noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2038102523416716&ev=PageView&noscript=1"/>
-</noscript>
-<!-- ================= END META PIXEL ================= -->
+  <img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2038102523416716&ev=PageView&noscript=1"
+/></noscript>
+<!-- ===== META PIXEL END ===== -->
 
 <style>
-:root{
---bg1:#0b0c10;--bg2:#14151a;--gold:#d4af37;--muted:#9aa0a6;
---accent:#f6d57b;--max-w:920px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
-*{box-sizing:border-box}
+
 body{
-margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:#fff;
-background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  background:linear-gradient(180deg,#050505,#0e0e0e,#000);
+  color:#fff;
 }
-.wrap{max-width:var(--max-w);margin:24px auto;padding:24px}
-.card{
-background:rgba(255,255,255,.02);
-border-radius:18px;
-padding:24px;
-border:1px solid rgba(255,255,255,.05);
+
+/* HERO */
+.hero{
+  padding:35px 18px 25px;
+  text-align:center;
 }
-.hero{display:flex;gap:24px;align-items:center}
+
 .logo{
-width:140px;height:140px;border-radius:50%;
-padding:6px;
-background:linear-gradient(135deg,rgba(212,175,55,.2),rgba(212,175,55,.05))
+  width:90px;
+  height:90px;
+  margin:auto;
+  border-radius:22px;
+  background:#000;
+  border:1px solid rgba(255,215,0,.4);
+  box-shadow:0 10px 30px rgba(255,215,0,.25);
 }
-.logo img{width:100%;height:100%;border-radius:50%}
-h1{margin:0;color:var(--gold)}
-.sub{color:var(--muted);margin:10px 0}
-.kpis{display:flex;gap:10px;flex-wrap:wrap}
-.kpi{
-padding:8px 12px;border-radius:10px;
-background:rgba(255,255,255,.03);
-color:var(--muted);font-size:14px
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:22px;
+  object-fit:cover;
 }
-.btn{
-display:inline-flex;align-items:center;justify-content:center;
-padding:14px 20px;border-radius:14px;
-font-weight:700;text-decoration:none
+
+.hero h1{
+  margin-top:18px;
+  font-size:30px;
+  font-weight:800;
+  background:linear-gradient(90deg,gold,#ffd700,#ffae00);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
-.btn-primary{
-background:linear-gradient(90deg,var(--gold),var(--accent));
-color:#071014
+
+.hero p{
+  margin-top:10px;
+  font-size:15px;
+  opacity:.9;
 }
-.features{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:12px;margin-top:16px
+
+/* GLASS CARD */
+.card{
+  margin:25px 16px;
+  padding:22px;
+  border-radius:22px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
-.feature{
-padding:12px;border-radius:12px;
-background:rgba(255,255,255,.02);
-color:var(--muted);font-size:14px
+
+/* POINTS */
+.point{
+  display:flex;
+  gap:12px;
+  margin:14px 0;
+  font-size:15px;
 }
-.feature strong{color:#fff}
-.section{margin-top:28px}
-footer{text-align:center;color:var(--muted);font-size:13px;margin-top:28px}
-@media(max-width:700px){
-.hero{flex-direction:column;text-align:center}
-.features{grid-template-columns:1fr}
-.btn{width:100%}
+.dot{
+  width:10px;
+  height:10px;
+  margin-top:6px;
+  border-radius:50%;
+  background:gold;
+}
+
+/* CTA CARD */
+.cta-box{
+  margin-top:20px;
+  padding:20px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#001f33,#003a66);
+  box-shadow:0 15px 35px rgba(0,136,204,.4);
+}
+
+.telegram-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:18px;
+  border-radius:60px;
+  background:linear-gradient(135deg,#0088cc,#00bfff);
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:800;
+  animation:pulse 1.6s infinite;
+}
+
+.telegram-btn:active{
+  transform:scale(.96);
+}
+
+.tg-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(255,255,255,.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.tg-icon svg{
+  width:18px;
+  fill:#fff;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1)}
+}
+
+.note{
+  margin-top:10px;
+  font-size:13px;
+  color:#ffd700;
+}
+
+/* STICKY CTA */
+.sticky{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:10px;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(6px);
+}
+
+.sticky a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff0000,#0066ff);
+  color:#fff;
+  text-decoration:none;
+  font-size:17px;
+  font-weight:800;
+}
+
+footer{
+  text-align:center;
+  padding:25px 10px 110px;
+  font-size:12px;
+  opacity:.6;
 }
 </style>
 </head>
 
 <body>
-<div class="wrap">
 
-<!-- ================= HERO ================= -->
-<div class="card hero">
+<!-- HERO -->
+<div class="hero">
   <div class="logo">
-    <img src="https://uploads.onecompiler.io/446vwj75z/447fxgqeq/WhatsApp%20Image%202025-12-13%20at%2014.05.45.jpeg"
-         alt="Gujarati Trader Logo">
+    <img src="https://uploads.onecompiler.io/445e5df86/445tc7ue3/330.png" alt="Gujarati Trader Logo">
   </div>
 
-  <div>
-    <h1>GUJARATI TRADER</h1>
-    <div class="sub">
-      Free educational Telegram community for market learning.
-    </div>
-
-    <div class="kpis">
-      <div class="kpi">Educational Only</div>
-      <div class="kpi">Charts & Analysis</div>
-      <div class="kpi">Risk Awareness</div>
-    </div>
-
-    <div style="margin-top:16px">
-      <!-- ✅ TELEGRAM BUTTON -->
-      <a class="btn btn-primary"
-         id="telegramJoinBtn"
-         href="https://t.me/+Rgtl9JMaCTFiMWQ1"
-         target="_blank" rel="noopener">
-        Join Free Telegram Community
-      </a>
-    </div>
-  </div>
+  <h1>Gujarati Trader™</h1>
+  <p>Smart traders ke liye — disciplined stock market approach</p>
 </div>
 
-<!-- ================= FEATURES ================= -->
-<div class="section card">
-  <h2 style="color:var(--gold);margin-top:0">What You Will Learn</h2>
-  <div class="features">
-    <div class="feature"><strong>Chart Basics</strong><br>Price action & indicators</div>
-    <div class="feature"><strong>Market Structure</strong><br>Trend & levels</div>
-    <div class="feature"><strong>Risk Management</strong><br>Capital protection</div>
-  </div>
-</div>
+<!-- CONTENT CARD -->
+<div class="card">
 
-<!-- ================= DISCLAIMER ================= -->
-<div class="section card">
-  <h2 style="color:var(--gold);margin-top:0">Important Disclaimer</h2>
-  <p style="color:var(--muted);font-size:14px">
-    This community is for <strong>educational purposes only</strong>.
-    No tips, no profit guarantees. Trading involves risk.
-  </p>
+  <div class="point">
+    <div class="dot"></div>
+    <div>Daily NSE / BSE market direction</div>
+  </div>
+
+  <div class="point">
+    <div class="dot"></div>
+    <div>High-probability intraday & swing setups</div>
+  </div>
+
+  <div class="point">
+    <div class="dot"></div>
+    <div>Capital protection & risk management focus</div>
+  </div>
+
+  <div class="point">
+    <div class="dot"></div>
+    <div>100% Gujarati explanation — simple & clear</div>
+  </div>
+
+  <div class="point">
+    <div class="dot"></div>
+    <div>No fake tips • No noise • No over-trading</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <a href="https://t.me/+Rgtl9JMaCTFiMWQ1"
+       target="_blank"
+       class="telegram-btn"
+       onclick="trackJoin()">
+
+      <span class="tg-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M9.993 15.674 9.82 18.63c.273 0 .392-.117.533-.257l1.278-1.223 2.65 1.94c.486.27.832.128.955-.45l1.73-8.137c.18-.82-.297-1.14-.77-.96L4.41 10.37c-.79.31-.778.75-.14.95l3.32 1.04 7.7-4.86c.36-.23.69-.1.42.13l-5.72 5.18Z"/>
+        </svg>
+      </span>
+
+      JOIN FREE TELEGRAM
+    </a>
+
+    <div class="note">⏳ Limited access — serious learners only</div>
+  </div>
+
 </div>
 
 <footer>
-  © <span id="year"></span> Gujarati Trader
+  Educational Purpose Only | Market Risk Applies
 </footer>
 
+<!-- STICKY CTA -->
+<div class="sticky">
+  <a href="https://t.me/+Rgtl9JMaCTFiMWQ1" target="_blank" onclick="trackJoin()">
+    🚀 Join Gujarati Trader™ Now
+  </a>
 </div>
 
-<!-- ================= TELEGRAM SUBSCRIBE EVENT ================= -->
 <script>
-(function () {
-  const btn = document.getElementById('telegramJoinBtn');
-  if (!btn) return;
-
-  btn.addEventListener('click', function () {
-
-    // ❌ prevent double fire
-    if (localStorage.getItem('telegram_join_fired')) return;
-
-    // ✅ Custom Event
-    fbq('trackCustom', 'TelegramJoin', {
-      platform: 'telegram',
-      page: 'landing_page'
-    });
-
-    // ✅ Standard Subscribe Event
-    fbq('track', 'Subscribe', {
-      content_name: 'Gujarati Trader Telegram'
-    });
-
-    // 🔐 lock
-    localStorage.setItem('telegram_join_fired', 'true');
-
-  }, { once: true });
-})();
-</script>
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
+function trackJoin(){
+  if(typeof fbq === 'function'){
+    fbq('track','Subscribe');
+  }
+}
 </script>
 
 </body>
