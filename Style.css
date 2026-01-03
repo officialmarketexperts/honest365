@@ -1,0 +1,63 @@
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:#050014;
+  color:#fff;
+}
+
+.dark{ background:#050014; }
+.gold{ background:#1b1400; }
+
+.card{
+  width:380px;
+  margin:120px auto;
+  padding:30px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  border-radius:18px;
+  text-align:center;
+}
+
+input{
+  width:100%;
+  margin:10px 0;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  background:gold;
+  font-weight:bold;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.loader{
+  width:70px;
+  height:70px;
+  border:6px solid #222;
+  border-top:6px solid gold;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg)}
+}
+
+.stats{
+  display:flex;
+  gap:20px;
+  padding:20px;
+}
+
+.box{
+  flex:1;
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+}
