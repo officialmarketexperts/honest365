@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dark">
+
+<header>
+  <h2>Shyam ADS Manager</h2>
+  <button onclick="toggleTheme()">Dark / Gold</button>
+</header>
+
+<section class="stats">
+  <div class="box"><h3 id="campaigns">0</h3><p>Campaigns</p></div>
+  <div class="box"><h3 id="clicks">0</h3><p>Clicks</p></div>
+  <div class="box"><h3 id="revenue">0</h3><p>Revenue</p></div>
+</section>
+
+<canvas id="adsChart"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
