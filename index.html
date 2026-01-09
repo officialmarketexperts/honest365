@@ -3,394 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRIC LUXURY Demo UI</title>
+<title>Gujarati Trader</title>
+
+<!-- ================= FIXED META PIXEL ================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2281635745651402');
+// Removed duplicate PageView - automatic fires once
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2281635745651402&ev=PageView&noscript=1"
+/></noscript>
+<!-- ================= END META PIXEL ================= -->
+
 <style>
-:root{
-  --bg:#061917;
-  --card:#0e2f2b;
-  --green:#0f6b5f;
-  --gold:#f5c77a;
-  --accent:#ff9800;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Arial}
+*{box-sizing:border-box}
 body{
-  background:radial-gradient(circle at top,var(--green),var(--bg));
-  color:#fff;
+margin:0;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 50%,#16213e 100%);
+color:#f0f0f0;
+text-align:center;
+min-height:100vh;
+overflow-x:hidden;
 }
 
-/* HEADER */
-.header{
-  background:linear-gradient(90deg,#0b3d36,#0f6b5f);
-  padding:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  font-size:20px;
-  font-weight:900;
-  color:var(--gold);
-}
-.user{
-  cursor:pointer;
-  font-size:13px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.user i{font-size:18px;}
-
-/* BALANCE POPUP */
-.balance-popup{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:var(--card);
-  padding:20px;
-  border-radius:12px;
-  display:none;
-  z-index:1000;
-  width:280px;
-}
-.balance-popup h3{color:var(--gold);margin-bottom:10px;}
-.balance-popup input, .balance-popup button{
-  width:100%;margin:6px 0;padding:10px;border:none;border-radius:8px;
-}
-.balance-popup button{background:var(--green);color:#fff;font-weight:700;cursor:pointer;}
-
-/* MARQUEE */
-.marquee{
-  background:#7a3f00;
-  font-size:12px;
-  padding:6px;
-  overflow:hidden;
-}
-.marquee span{
-  display:inline-block;
-  white-space:nowrap;
-  animation:scroll 12s linear infinite;
-}
-@keyframes scroll{
-  from{transform:translateX(100%)}
-  to{transform:translateX(-100%)}
+.container{
+max-width:420px;
+margin:auto;
+padding:30px 20px 50px;
+position:relative;
 }
 
-/* TOP NAV */
-.topnav{
-  display:flex;
-  background:#123;
-}
-.topnav button{
-  flex:1;
-  padding:12px;
-  background:none;
-  border:none;
-  color:#ccc;
-  font-weight:600;
-  transition:.3s;
-}
-.topnav button:hover{
-  color:var(--gold);
-}
-.topnav button.active{
-  color:var(--gold);
-  border-bottom:3px solid var(--gold);
+@keyframes glowPulse{
+0%,100%{box-shadow:0 0 20px rgba(212,175,55,.5),inset 0 0 20px rgba(212,175,55,.1)}
+50%{box-shadow:0 0 40px rgba(212,175,55,.8),inset 0 0 30px rgba(212,175,55,.2)}
 }
 
-/* SPORTS ICONS */
-.sports{
-  display:flex;
-  justify-content:space-around;
-  padding:12px 0;
-}
-.sports div{
-  text-align:center;
-  font-size:12px;
-  transition:.3s;
-}
-.sports div:hover{
-  transform:translateY(-4px) scale(1.05);
-  color:var(--gold);
-}
-.sports i{
-  font-size:22px;
-  display:block;
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
 }
 
-/* SECTION */
-.section{padding:14px}
-.title{
-  color:var(--gold);
-  margin-bottom:10px;
-  font-size:14px;
+.logo-wrap{
+margin:25px 0 20px;
+display:flex;justify-content:center;
+perspective:1000px;
+}
+.logo-gold{
+width:160px;height:160px;border-radius:50%;
+padding:4px;background:linear-gradient(135deg,#f4d03f,#f39c12,#f4d03f);
+box-shadow:0 15px 35px rgba(244,208,63,.4);
+animation:glowPulse 2.5s ease-in-out infinite;
+transform-style:preserve-3d;
+transition:transform .3s ease;
+}
+.logo-gold:hover{transform:rotateY(10deg) rotateX(10deg);}
+.logo-gold img{
+width:100%;height:100%;border-radius:50%;
+background:linear-gradient(135deg,#1a1a2e,#16213e);
+filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));
 }
 
-/* MATCH CARD */
-.match-card{
-  background:linear-gradient(145deg,#0b2623,#123c36);
-  border-radius:14px;
-  padding:12px;
-  margin-bottom:12px;
-  box-shadow:0 10px 25px #0008;
-  transition:.3s;
+h1{
+margin:20px 0 10px;
+font-size:32px;font-weight:900;
+letter-spacing:2px;background:linear-gradient(135deg,#f4d03f,#f39c12);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+background-clip:text;
+text-shadow:0 0 20px rgba(244,208,63,.5);
+animation:float 4s ease-in-out infinite;
 }
-.match-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 25px var(--green);
-}
-.match-time{font-size:11px;color:#bbb}
-
-/* ODDS */
-.odds{
-  display:flex;
-  gap:8px;
-  margin-top:10px;
-}
-.odds div{
-  flex:1;
-  padding:8px;
-  text-align:center;
-  border-radius:10px;
-  font-weight:700;
-  background:linear-gradient(135deg,#0f6b5f,#1fa99a);
-  box-shadow:0 0 10px #0f6b5f88;
-  transition:.25s;
-}
-.odds div:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 18px var(--gold);
-}
-.odds div:active{
-  transform:scale(.95);
+.sub{
+font-size:15px;color:#c0a375;
+font-weight:500;letter-spacing:1px;
+text-shadow:0 1px 3px rgba(0,0,0,.5);
+margin-bottom:25px;
 }
 
-/* GAMES */
-.games{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+.info-box{
+margin:25px 0;background:linear-gradient(145deg,#1a1a2e,#16213e);
+border-radius:20px;padding:20px 22px;
+text-align:left;border:1px solid rgba(244,208,63,.2);
+box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
 }
-.game{
-  height:90px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  background:linear-gradient(135deg,#5b1fa6,#ff9800);
-  box-shadow:0 10px 25px #000;
-  transition:.3s;
+.info-box h3{margin:0 0 15px 0;font-size:18px;color:#f4d03f;font-weight:700}
+.info-box li{
+margin:12px 0;font-size:15px;
+opacity:.9;transition:opacity .3s ease;
 }
-.game:hover{
-  transform:translateY(-6px) scale(1.05);
+.info-box li:hover{opacity:1;}
+.info-box li::marker{color:#f39c12;}
+
+.join-btn{
+margin:30px auto 20px;display:block;
+width:100%;max-width:380px;padding:20px 30px;
+font-size:20px;font-weight:900;border-radius:25px;
+color:#fff;text-decoration:none;
+background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+box-shadow:0 15px 35px rgba(102,126,234,.4),0 5px 15px rgba(0,0,0,.3);
+animation:glowPulse 2.8s ease-in-out infinite;
+transition:all .3s ease;position:relative;overflow:hidden;
+}
+.join-btn:hover{
+transform:translateY(-3px);box-shadow:0 20px 45px rgba(102,126,234,.5);
+}
+.join-btn::before{
+content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+transition:left .5s;
+}
+.join-btn:hover::before{left:100%;}
+
+.live{
+margin:15px 0;font-size:20px;font-weight:800;
+color:#f4d03f;text-shadow:0 0 15px rgba(244,208,63,.6);
+animation:float 3s ease-in-out infinite;
 }
 
-/* SPACE */
-.space{height:100px}
+.client-box{
+margin:20px auto;background:linear-gradient(145deg,#1a1a2e,#16213e);
+border-radius:20px;padding:20px;max-width:380px;
+border:1px solid rgba(244,208,63,.2);
+box-shadow:0 10px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+}
+.profit{
+font-size:24px;font-weight:900;
+background:linear-gradient(135deg,#00ff88,#00cc6a);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+margin-bottom:8px;
+}
+.small{font-size:13px;color:#9aa0a6;opacity:.8}
 
-/* WHATSAPP ICON */
-#whatsappIcon{
-  position:fixed;
-  bottom:16px;
-  right:16px;
-  font-size:28px;
-  color:#25D366;
-  cursor:pointer;
-  animation:zoominout 1.2s infinite alternate;
-}
-@keyframes zoominout{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.2)}
-  100%{transform:scale(1)}
-}
-
-/* RIGHT MENU */
-.overlay{
-  position:fixed;
-  inset:0;
-  background:#0007;
-  display:none;
-  z-index:999;
-}
-.overlay.show{display:block}
-
-.right-menu{
-  position:fixed;
-  top:0;
-  right:-280px;
-  width:260px;
-  height:100%;
-  background:#fff;
-  color:#000;
-  padding:16px;
-  transition:.4s;
-  z-index:1000;
-}
-.right-menu.show{right:0}
-.right-menu ul{list-style:none}
-.right-menu li{
-  padding:10px 0;
-  border-bottom:1px solid #eee;
-  cursor:pointer;
-}
-.right-menu li.logout{
-  color:red;
-  font-weight:bold;
+.warn{
+margin-top:25px;font-size:12px;color:#888;
+line-height:1.6;max-width:340px;margin-left:auto;margin-right:auto;
+background:rgba(0,0,0,.3);padding:15px;border-radius:12px;
+border-left:3px solid #f39c12;
 }
 
-/* CHAT POPUP */
-.chat-popup{
-  position:fixed;
-  bottom:60px;
-  right:12px;
-  width:250px;
-  background:var(--card);
-  padding:10px;
-  border-radius:12px;
-  display:none;
-  z-index:1000;
-}
-.chat-popup textarea{
-  width:100%;
-  height:60px;
-  margin-top:6px;
-  border-radius:8px;
-  border:none;
-  padding:6px;
+@media (max-width:480px){
+.container{padding:20px 15px 40px}
+.logo-gold{width:140px;height:140px;padding:3px}
+h1{font-size:28px;letter-spacing:1.5px}
+.join-btn{padding:18px 25px;font-size:18px}
 }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+<div class="container">
+  <div class="logo-wrap">
+    <div class="logo-gold">
+      <img src="https://uploads.onecompiler.io/445e5df86/445tc7ue3/330.png" alt="Gujarati Trader">
+    </div>
+  </div>
 
-<div class="header">
-  <div class="logo">CRIC LUXURY</div>
-  <div class="user" onclick="openMenu()">
-    <span>demo123</span>
-    <i class="fas fa-wallet" onclick="openBalance()"></i>
+  <h1>👑GUJRATI TRADER👑</h1>
+  <div class="sub">Market Education • Discipline • Risk Awareness</div>
+
+  <div class="info-box">
+    <h3>🎯 What You'll Learn:</h3>
+    <ul>
+      <li>📊 Chart Reading & Technical Levels</li>
+      <li>📈 Nifty • BankNifty • Stocks</li>
+      <li>🛡️ Risk Management Education</li>
+    </ul>
+  </div>
+
+  <a class="join-btn" href="#" onclick="trackTelegramSubscribe()">
+    🚀 JOIN OUR TELEGRAM NOW
+  </a>
+
+  <div class="live">🔴 Community Learning Update</div>
+
+  <div class="client-box">
+    <div class="profit">Live Chart Learning</div>
+    <div class="small">Educational market discussion only</div>
+  </div>
+
+  <div class="warn">
+    ⚠️ Educational purpose only. No tips, no guarantees.<br>
+    Market participation involves risk. Trade responsibly.
   </div>
 </div>
 
-<div class="marquee">
-  <span>⚠️ DEMO UI ONLY • NO REAL MONEY • PREMIUM LUXURY DESIGN ⚠️</span>
-</div>
-
-<div class="topnav">
-  <button class="active">INPLAY</button>
-  <button>SPORTS</button>
-  <button>CASINO</button>
-  <button>PROFILE</button>
-</div>
-
-<div class="sports">
-  <div><i class="fas fa-cricket-bat-ball"></i>Cricket</div>
-  <div><i class="fas fa-futbol"></i>Football</div>
-  <div><i class="fas fa-table-tennis-paddle-ball"></i>Tennis</div>
-  <div>🏎️Racing</div>
-</div>
-
-<div class="section">
-  <div class="title">UPCOMING MATCHES</div>
-
-  <div class="match-card">
-    India T10 vs South Africa T10
-    <div class="match-time">03 Jan 2026 • 18:40 IST</div>
-    <div class="odds"><div>1</div><div>X</div><div>2</div></div>
-  </div>
-
-  <div class="match-card">
-    India T10 vs Pakistan T10
-    <div class="match-time">04 Jan 2026 • 19:00 IST</div>
-    <div class="odds"><div>1</div><div>X</div><div>2</div></div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="title">CASINO • DEMO</div>
-  <div class="games">
-    <div class="game">AVIATOR</div>
-    <div class="game">MINES</div>
-    <div class="game">COLOR</div>
-    <div class="game">PREDICT</div>
-  </div>
-</div>
-
-<div class="space"></div>
-
-<!-- WHATSAPP ICON -->
-<i class="fab fa-whatsapp" id="whatsappIcon" onclick="openChat()"></i>
-
-<!-- RIGHT MENU -->
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
-<div class="right-menu" id="menu">
-  <ul>
-    <li>Home</li>
-    <li>Account Statement</li>
-    <li>Profit Loss Report</li>
-    <li>Bet History</li>
-    <li>Unsettled Bet</li>
-    <li>Set Button Values</li>
-    <li>Change Password</li>
-    <li>Rule</li>
-    <li class="logout">Logout</li>
-  </ul>
-</div>
-
-<!-- BALANCE POPUP -->
-<div class="balance-popup" id="balancePopup">
-  <h3>Deposit Amount</h3>
-  <input type="number" placeholder="Enter amount" id="depositAmount">
-  <input type="text" placeholder="UTR / Reference">
-  <button onclick="submitDeposit()">Deposit</button>
-</div>
-
-<!-- CHAT POPUP -->
-<div class="chat-popup" id="chatPopup">
-  <div><b>WhatsApp Support</b></div>
-  <textarea placeholder="Type message..."></textarea>
-  <button onclick="sendChat()">Send</button>
-</div>
-
+<!-- ✅ FIXED & FASTER TELEGRAM SCRIPT -->
 <script>
-const menu = document.getElementById("menu");
-const overlay = document.getElementById("overlay");
-const balancePopup = document.getElementById("balancePopup");
-const chatPopup = document.getElementById("chatPopup");
-
-function openMenu(){
-  menu.classList.add("show");
-  overlay.classList.add("show");
-}
-function closeMenu(){
-  menu.classList.remove("show");
-  overlay.classList.remove("show");
-}
-
-function openBalance(){
-  balancePopup.style.display = "block";
-}
-function closeBalance(){
-  balancePopup.style.display = "none";
-}
-
-function submitDeposit(){
-  const amt = document.getElementById("depositAmount").value;
-  if(!amt) return alert("Please enter deposit amount!");
-  alert("Deposit submitted: ₹" + amt);
-  closeBalance();
-}
-
-// CHAT DEMO
-function openChat(){
-  chatPopup.style.display = "block";
-}
-function sendChat(){
-  const msg = chatPopup.querySelector("textarea").value;
-  if(!msg) return alert("Enter message!");
-  alert("Message sent: " + msg);
-  chatPopup.style.display = "none";
+function trackTelegramSubscribe(){
+  if(!localStorage.getItem('tg_subscribed')){
+    fbq('track','Subscribe',{platform:'telegram'});
+    localStorage.setItem('tg_subscribed','1');
+  }
+  // Instant redirect (50ms)
+  setTimeout(function(){
+    window.location.href = "https://t.me/+u6X4isPVqWRhYjM9";
+  }, 50);
 }
 </script>
+
 </body>
 </html>
